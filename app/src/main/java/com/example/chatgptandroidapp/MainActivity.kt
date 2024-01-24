@@ -1,6 +1,5 @@
 package com.example.chatgptandroidapp
 
-import ChatRequestBody
 import ChatResponse
 import OpenAIApiService
 import android.os.Bundle
@@ -13,7 +12,6 @@ import com.example.chatgptapp.ChatAdapter
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import kotlin.math.log
 
 class MainActivity : AppCompatActivity() {
     private lateinit var chatAdapter: ChatAdapter
@@ -45,26 +43,28 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun sendMessageToChatGPT(message: String) {
-        val requestBody = ChatRequestBody(message)
+    private fun sendMessageToChatGPT(userMessage: String) {
+        val messages = listOf(Message("user", userMessage))
+        val requestBody = ChatRequestBody(messages = messages)
 
         RetrofitClient.retrofit.create(OpenAIApiService::class.java).postMessage(requestBody)
             .enqueue(object : Callback<ChatResponse> {
                 override fun onResponse(call: Call<ChatResponse>, response: Response<ChatResponse>) {
                     if (response.isSuccessful) {
-                        val reply = response.body()?.choices?.firstOrNull()?.text ?: "No response"
-                        val responseMessage = ChatMessage(reply, false) // Assuming 'false' indicates a bot response
+                        // Assuming the API response has the structure as shown in the documentation
+                        val reply = response.body()?.choices?.firstOrNull()?.message?.content ?: "No response"
+                        val responseMessage = ChatMessage(reply, false)
                         runOnUiThread {
                             updateChatRecyclerView(responseMessage)
                         }
                     } else {
-                        println("response is not successful")
+                        // Handle API error
                     }
                 }
 
                 override fun onFailure(call: Call<ChatResponse>, t: Throwable) {
-                    println("response is not successful")
-                    println(t.message.toString())}
+                    // Handle network error
+                }
             })
     }
 
