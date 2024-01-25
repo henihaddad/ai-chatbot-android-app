@@ -14,7 +14,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "OPENAI_API_KEY",
-            "\"sk-\""
+            "\"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\""
         )
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         android.buildFeatures.buildConfig = true

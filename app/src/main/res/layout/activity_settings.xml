@@ -1,6 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+<!-- activity_settings.xml -->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <Button
+        android:id="@+id/blueThemeButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Blue Theme"
+        android:layout_centerInParent="true" />
+
+    <!-- Add more buttons or a color picker for different themes -->
+</RelativeLayout>

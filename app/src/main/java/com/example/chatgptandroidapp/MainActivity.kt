@@ -2,6 +2,10 @@ package com.example.chatgptandroidapp
 
 import ChatResponse
 import OpenAIApiService
+import SettingsActivity
+import android.content.Context
+import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -20,6 +24,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val sharedPreferences = getSharedPreferences("AppSettingsPrefs", Context.MODE_PRIVATE)
+        val themeColor = sharedPreferences.getInt("ThemeColor", Color.BLUE)
         setContentView(R.layout.activity_main)
 
         chatRecyclerView = findViewById(R.id.chatRecyclerView)
@@ -39,6 +45,12 @@ class MainActivity : AppCompatActivity() {
                 inputEditText.text.clear()
             }
         }
+        val settingsButton = findViewById<Button>(R.id.settingsButton)
+        settingsButton.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+        }
+
 
     }
 
