@@ -14,7 +14,7 @@ android {
         versionCode = 1
         versionName = "1.0"
         buildConfigField("String", "OPENAI_API_KEY",
-            "\"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\""
+            "\"sk-\""
         )
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         android.buildFeatures.buildConfig = true
@@ -46,6 +46,7 @@ android {
 dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+//    implementation("io.github.cdimascio:dotenv-kotlin:2.2.2")
 
 
     implementation("androidx.core:core-ktx:1.9.0")

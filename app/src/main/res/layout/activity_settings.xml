@@ -5,11 +5,49 @@
     android:padding="16dp">
 
     <Button
-        android:id="@+id/blueThemeButton"
+        android:id="@+id/buttonBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Blue Theme"
-        android:layout_centerInParent="true" />
+        android:text="Back"/>
 
-    <!-- Add more buttons or a color picker for different themes -->
+    <Spinner
+        android:id="@+id/spinnerThemeColors"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"/>
+
+
+    <RadioGroup
+        android:padding="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/radioGroupModels">
+
+        <RadioButton
+            android:id="@+id/radioButtonModel0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gpt-4-0125-preview"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonModel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gpt-4-vision-preview"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonModel2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gpt-3.5-turbo-1106"/>
+
+        <RadioButton
+            android:id="@+id/radioButtonModel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="gpt-3.5-turbo"/>
+        <!-- Add more radio buttons for other models -->
+    </RadioGroup>
+
 </RelativeLayout>
